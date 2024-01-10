@@ -13,12 +13,12 @@ export default function () {
       .get(`http://localhost:5000/courses`)
       .then((res) => {
         setCourses(res.data.courses);
-        console.log(Courses[0]._id);
+        console.log(res.data.courses);
       })
       .catch((err) => {
         console.log(err);
       });
-  });
+  },[]);
 
   return (
     <div>
@@ -36,13 +36,16 @@ export default function () {
             <p style={{ textAlign: "left", fontSize: "20px" }}>{courses._id}</p>
 
             <button
-              onClick={axios
+              onClick={()=>
+                {
+                  console.log(test)
+                  axios
                 .post(
-                  `http://localhost:5000/courses/enrollCourse/${courses._id}`,
+                  `http://localhost:5000/courses/enrollCourse/${courses._id}`,{},
                   {
                     headers: {
-                      Authorization: `Bearer ${test}`,
-                    },
+                      Authorization: `Bearer ${test}`
+                    }
                   }
                 )
                 .then((res) => {
@@ -50,7 +53,7 @@ export default function () {
                 })
                 .catch((err) => {
                   console.log(err);
-                })}
+                })}}
             >
               Enroll Course
             </button>

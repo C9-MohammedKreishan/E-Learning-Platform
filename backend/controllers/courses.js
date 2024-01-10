@@ -38,7 +38,6 @@ const getCoursesbyInstructor = (req, res) => {
     .populate("courseInstructor", "firstName lastName")
 
     .then((courses) => {
-      console.log(courses);
       if (!courses.length) {
         return res.status(404).json({
           success: false,
@@ -73,7 +72,7 @@ const getCoursesbyUser = (req, res) => {
 .exec()
   
     .then((courses) => {
-      console.log(courses);
+     
       if (!courses.length) {
         return res.status(404).json({
           success: false,
@@ -97,7 +96,7 @@ const getCoursesbyUser = (req, res) => {
 
 //This function returns courses by Instructor
 const getCoursesbyCategory = (req, res) => {
-  console.log(req.params);
+  
   const categoryId = req.params.categoryId 
 
   coursesModel
@@ -105,7 +104,7 @@ const getCoursesbyCategory = (req, res) => {
     .populate("courseInstructor", "firstName lastName")
 
     .then((courses) => {
-      console.log(courses);
+     
       if (!courses.length) {
         return res.status(404).json({
           success: false,
@@ -161,7 +160,7 @@ const enrolledCourse = (req,res)=>{
     const userId = req.token.userId;
     const  enrolledDate = new Date();
     const {courseId} = req.params
-    console.log(req.params);
+    
     const newCourse = new enrolledCourseModel({
         courseId,
         userId,
@@ -218,13 +217,13 @@ const createNewCourse = (req, res) => {
 
 const createNewCategory = (req, res) => {
   const { categoryName } = req.body;
-  console.log(categoryName);
+ 
 
   const newCategory = new categoryModel({
     categoryName,
   });
 
-  console.log(categoryName);
+ 
 
   newCategory
     .save()
