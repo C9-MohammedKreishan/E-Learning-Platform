@@ -1,5 +1,6 @@
 const coursesModel = require("../models/courseSchema");
 const categoryModel = require("../models/categorySchema");
+const enrolledCourseModel = require("../models/enrolledSchema");
 
 // This function returns the courses
 const getAllCourses = (req, res) => {
@@ -51,6 +52,40 @@ const getCoursesbyInstructor = (req, res) => {
       res.status(200).json({
         success: true,
         message: `All the courses for the Instructor: ${InstructorId}`,
+        courses: courses,
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        success: false,
+        message: `Server Error`,
+        err: err.message,
+      });
+    });
+};
+
+//This function returns courses by Instructor
+const getCoursesbyUser = (req, res) => {
+  console.log(req.token);
+  const UserId = req.params.UserId;
+  console.log(UserId);
+
+  enrolledCourseModel
+    .find({userId:UserId})
+    // .populate("courseInstructor", "firstName lastName")
+    
+
+    .then((courses) => {
+      console.log(courses);
+      if (!courses.length) {
+        return res.status(404).json({
+          success: false,
+          message: `The User: ${UserId} has no courses`,
+        });
+      }
+      res.status(200).json({
+        success: true,
+        message: `All the courses for the User: ${UserId}`,
         courses: courses,
       });
     })
@@ -124,12 +159,40 @@ const getCoursebyId = (req, res) => {
     });
 };
 
+// Enrool Courses
+const enrolledCourse = (req,res)=>{
+    const userId = req.token.userId;
+    const  enrolledDate = new Date();
+    const {courseId} = req.params
+    console.log(req.params);
+    const newCourse = new enrolledCourseModel({
+        courseId,
+        userId,
+        enrolledDate
+      });
+
+      newCourse
+      .save()
+      .then((course) => {
+        res.status(201).json({
+          success: true,
+          message: `Course enrooled`,
+          course: course,
+        });
+      })
+      .catch((err) => {
+        res.status(500).json({
+          success: false,
+          message: `Server Error`,
+          err: err.message,
+        });
+      });
+}
 // This function creates new course
 const createNewCourse = (req, res) => {
   const { courseName, courseTitle, courseDiscription, courseCategory } =
     req.body;
   const courseInstructor = req.token.userId;
-  console.log(req);
   const newCourse = new coursesModel({
     courseName,
     courseTitle,
@@ -215,7 +278,7 @@ const updateCourseById = (req, res) => {
     });
 };
 
-// This function deletes a specific article by its id
+// This function deletes a specific course by its id
 const deleteCourseById = (req, res) => {
   const id = req.params.id;
   coursesModel
@@ -278,4 +341,6 @@ module.exports = {
   deleteCourseByInstructor,
   createNewCategory,
   getCoursesbyCategory,
+  enrolledCourse,
+  getCoursesbyUser
 };
