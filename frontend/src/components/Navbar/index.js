@@ -8,13 +8,13 @@ const Navbar = () => {
         <div className="Nav" style={{ display: "flex", gap: "16px" }}>
           <Link to="/users/register">Register</Link>
           ||
-          <Link to="/about">About</Link>
-          ||
           <Link to="/users/login">Login</Link>
           ||
           <Link to="/users/dashboard">Dashboard</Link>
           ||
-          <Link to="/articles">Courses</Link>
+          <Link to="/users/allcourses">All Courses</Link>
+          
+
         </div>
       
     </div>

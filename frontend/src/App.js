@@ -6,6 +6,7 @@ import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import Dashboard from "./components/Dashboard/Dashboard";
 import AddCourse from "./components/Courses/Courses";
+import Allcourses from "./components/Allcourses/Allcourses";
 export const userContext = createContext();
 
 function App() {
@@ -13,15 +14,16 @@ function App() {
 
   const [token, setToken] = useState(localStorage.getItem("token") || null);
   return (
-    <userContext.Provider  value={{ toggle, setToggle, token, setToken }}>
+    <userContext.Provider value={{ toggle, setToggle, token, setToken }}>
       <div className="App">
-        <h1>Hello, World!</h1>
+        <h1>E Learning</h1>
         <Navbar />
         <Routes>
           <Route path="/users/register" element={<Register />} />
           <Route path="/users/login" element={<Login />} />
           <Route path="/users/dashboard" element={<Dashboard />} />
-          <Route path="/articles" element={<AddCourse />} />
+          <Route path="/users/allcourses" element={<Allcourses />} />
+          <Route path="/a" element={<AddCourse />} />
         </Routes>
       </div>
     </userContext.Provider>

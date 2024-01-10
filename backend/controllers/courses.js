@@ -4,17 +4,13 @@ const enrolledCourseModel = require("../models/enrolledSchema");
 
 // This function returns the courses
 const getAllCourses = (req, res) => {
-  const userId = req.token.userId;
   coursesModel
     .find()
-    .populate("courseInstructor", "firstName lastName")
-    .exec()
     .then((courses) => {
       if (courses.length) {
         res.status(200).json({
           success: true,
           message: `All the courses`,
-          userId: userId,
           courses: courses,
         });
       } else {
@@ -66,15 +62,16 @@ const getCoursesbyInstructor = (req, res) => {
 
 //This function returns courses by Instructor
 const getCoursesbyUser = (req, res) => {
-  console.log(req.token);
-  const UserId = req.params.UserId;
-  console.log(UserId);
+  // const UserId = req.params.UserId;
+  const UserId = req.token.userId;
 
   enrolledCourseModel
+    // .find({userId:UserId},"courseTitle courseInstructor courseCategory")
     .find({userId:UserId})
-    // .populate("courseInstructor", "firstName lastName")
-    
 
+    .populate("courseId")
+.exec()
+  
     .then((courses) => {
       console.log(courses);
       if (!courses.length) {

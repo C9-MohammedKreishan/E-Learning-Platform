@@ -26,11 +26,11 @@ const authorization = require("../middleware/authorization");
 const coursesRouter = express.Router();
 
 
-coursesRouter.get("/", authentication, getAllCourses);
+coursesRouter.get("/",  getAllCourses);
 coursesRouter.get("/search_category/:categoryId/test", getCoursesbyCategory);
 coursesRouter.get("/search_1/:Instructor", getCoursesbyInstructor);
 coursesRouter.post("/enrollCourse/:courseId", authentication,enrolledCourse);
-coursesRouter.get("/enrollCourse/:UserId", authentication,getCoursesbyUser)
+coursesRouter.get("/enrollCourse", authentication,getCoursesbyUser)
 
 
 coursesRouter.get("/search_2/:id", getCoursebyId);
