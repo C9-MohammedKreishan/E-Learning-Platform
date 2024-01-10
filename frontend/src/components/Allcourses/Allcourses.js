@@ -6,14 +6,14 @@ export default function () {
   const [Courses, setCourses] = useState([]);
   const [courseId, setcourseId] = useState("");
   // const { setToken } = useContext(userContext);
-
+  const test = localStorage.getItem("token");
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/courses`,
-      )
+      .get(`http://localhost:5000/courses`)
       .then((res) => {
         setCourses(res.data.courses);
+        console.log(Courses[0]._id);
       })
       .catch((err) => {
         console.log(err);
@@ -25,6 +25,7 @@ export default function () {
       <h1>All Courses</h1>
 
       {Courses.map((courses, indx) => {
+        
         return (
           <div>
             <h1 style={{ textAlign: "left" }}>{courses.courseTitle}</h1>
@@ -32,6 +33,27 @@ export default function () {
               {courses.courseDiscription}
             </p>
 
+            <p style={{ textAlign: "left", fontSize: "20px" }}>{courses._id}</p>
+
+            <button
+              onClick={axios
+                .post(
+                  `http://localhost:5000/courses/enrollCourse/${courses._id}`,
+                  {
+                    headers: {
+                      Authorization: `Bearer ${test}`,
+                    },
+                  }
+                )
+                .then((res) => {
+                  console.log('res', res)
+                })
+                .catch((err) => {
+                  console.log(err);
+                })}
+            >
+              Enroll Course
+            </button>
           </div>
         );
       })}
