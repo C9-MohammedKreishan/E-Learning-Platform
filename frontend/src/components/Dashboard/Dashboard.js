@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect} from "react";
 import axios from "axios";
-import { userContext } from "../../App";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
@@ -8,9 +7,6 @@ import Row from "react-bootstrap/Row";
 import { Container } from "react-bootstrap";
 export default function () {
   const [Courses, setCourses] = useState([]);
-  const [courseId, setcourseId] = useState("");
-  // const { setToken } = useContext(userContext);
-
   const test = localStorage.getItem("token");
 
   useEffect(() => {
@@ -24,7 +20,6 @@ export default function () {
         console.log(res.data.courses);
         setCourses(res.data.courses);
 
-        // setcourseId(res.data)
       })
       .catch((err) => {
         console.log(err);
@@ -83,16 +78,6 @@ export default function () {
           ))}
         </Row>
       </Container>
-      {Courses.map((courses, indx) => {
-        return (
-          <div>
-            <h1 style={{ textAlign: "left" }}>{courses.courseId.courseTitle}</h1>
-            <p style={{ textAlign: "left", fontSize: "20px" }}>
-              {courses.courseId.courseDiscription}
-            </p>
-          </div>
-        );
-      })}
     </div>
   );
 }

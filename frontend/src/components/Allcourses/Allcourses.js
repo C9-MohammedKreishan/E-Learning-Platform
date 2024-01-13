@@ -6,12 +6,16 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { Container } from "react-bootstrap";
+import {useNavigate}  from "react-router-dom";
 
 export default function () {
   const [Courses, setCourses] = useState([]);
   const [courseId, setcourseId] = useState("");
+  const [SelectCourse, setSelectCourse] = useState("");
+
   // const { setToken } = useContext(userContext);
   const test = localStorage.getItem("token");
+  const redirect = useNavigate();
 
   useEffect(() => {
     axios
@@ -67,8 +71,27 @@ export default function () {
                   >
                     Enroll Course
                   </Button>
-                  <Button style={{ margin:"5px"}} className="mb-2" variant="primary">
-                    Go somewhere
+                  <Button style={{ margin:"5px"}} className="mb-2" variant="primary" onClick={() => {
+                      axios
+                        .get(
+                          `http://localhost:5000/courses/search_2/${courses._id}`,{},
+                          {},
+                          {
+                            headers: {
+                              Authorization: `Bearer ${test}`,
+                            },
+                          }
+                        )
+                        .then((res) => {
+                          console.log("res", res.data.course.courseDiscription);
+                          setSelectCourse(res.data.course)
+                          redirect(`/users/onecourse/${courses._id}`);
+                        })
+                        .catch((err) => {
+                          console.log(err);
+                        });
+                    }}>
+                    Viwe Course
                   </Button>
                   </div>
                 </Card.Body>

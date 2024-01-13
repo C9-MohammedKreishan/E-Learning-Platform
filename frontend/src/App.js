@@ -13,6 +13,7 @@ import ArtsAndPhotography from "./components/Categories/ArtsAndPhotography";
 import PersonalFinanceAndEconomics from "./components/Categories/PersonalFinanceAndEconomics";
 import Home from "./components/Home/Home";
 import Footer from "./components/Footer/Footer"
+import OneCourse from "./components/Courses/OneCourse"
 export const userContext = createContext();
 
 function App() {
@@ -36,6 +37,8 @@ function App() {
 
           <Route path="/users/dashboard" element={<Dashboard />} />
           <Route path="/users/allcourses" element={<Allcourses />} />
+          <Route path="/users/onecourse/:courseId" element={<OneCourse />} />
+
           {/* <Route path="/users/categories" element={<Categories />} /> */}
           <Route
             path="/categories/marketingAndBusiness"
