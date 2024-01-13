@@ -2,10 +2,12 @@ const coursesModel = require("../models/courseSchema");
 const categoryModel = require("../models/categorySchema");
 const enrolledCourseModel = require("../models/enrolledSchema");
 
+
 // This function returns the courses
 const getAllCourses = (req, res) => {
   coursesModel
     .find()
+    .populate("courseInstructor", "firstName lastName")
     .then((courses) => {
       if (courses.length) {
         res.status(200).json({

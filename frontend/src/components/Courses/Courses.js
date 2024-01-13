@@ -30,19 +30,19 @@ const AddCourse = () => {
       <button
         style={{ padding: "20px" }}
         id="Add-Course"
-        onClick={() => {    
-        
-        
-         
-const test = localStorage.getItem("token")
-           axios.post("http://localhost:5000/courses",  { courseTitle:title, courseDiscription:text},
+        onClick={() => {
+          const test = localStorage.getItem("token");
+          axios
+            .post(
+              "http://localhost:5000/courses",
+              { courseTitle: title, courseDiscription: text },
               {
-              headers: {
-                Authorization: `Bearer ${test}`,
-              },
-            }
+                headers: {
+                  Authorization: `Bearer ${test}`,
+                },
+              }
             )
-            
+
             .then((res) => {
               setCourseResult(res.data.message);
               console.log(res.data.message);
