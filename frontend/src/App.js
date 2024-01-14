@@ -14,6 +14,8 @@ import PersonalFinanceAndEconomics from "./components/Categories/PersonalFinance
 import Home from "./components/Home/Home";
 import Footer from "./components/Footer/Footer"
 import OneCourse from "./components/Courses/OneCourse"
+import Categories from "./components/Categories/Categories"
+import RandomCourse from "./components/Courses/RandomCourse";
 export const userContext = createContext();
 
 function App() {
@@ -38,8 +40,9 @@ function App() {
           <Route path="/users/dashboard" element={<Dashboard />} />
           <Route path="/users/allcourses" element={<Allcourses />} />
           <Route path="/users/onecourse/:courseId" element={<OneCourse />} />
+          <Route path="/users/onecourse/randomcourse" element={<RandomCourse />} />
 
-          {/* <Route path="/users/categories" element={<Categories />} /> */}
+          <Route path="/users/categories" element={<Categories />} />
           <Route
             path="/categories/marketingAndBusiness"
             element={<MarketingAndBusiness />}

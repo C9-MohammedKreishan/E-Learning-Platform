@@ -1,9 +1,7 @@
-
-
 import React from "react";
 import {
-  Container,
   Navbar,
+  Container,
   Nav,
   Form,
   FormControl,
@@ -34,29 +32,32 @@ const NavBar = () => {
             <Nav.Link href="/Home">Home</Nav.Link>
             <Nav.Link href="/users/register">Register</Nav.Link>
             <Nav.Link href="/users/login">Login</Nav.Link>
-            <Nav.Link href="/users/dashboard">Dashboard</Nav.Link>
-            <Nav.Link href="/users/allcourses">All Courses</Nav.Link>
-            {" "}
-            <Dropdown.Menu title="Categories" id="basic-nav-dropdown">
-            {" "}
-              <Dropdown.Item href="/categories/marketingAndBusiness">
-              Marketing and Business{" "}
-              </Dropdown.Item>
-              {" "}
-              <Dropdown.Item href="/categories/artsAndPhotography">
-                 Arts and Photography{" "}
-              </Dropdown.Item>
-              {" "}
-              <Dropdown.Item href="/categories/personalFinanceAndEconomics">
-                Personal Finance and Economics{" "}
-              </Dropdown.Item>
-              <Dropdown.Divider />
-              {" "}
-              <Dropdown.Item href="#action/3.4">
-                 Separated link {" "}
-              </Dropdown.Item>
-              {" "}
-            </Dropdown.Menu>
+            <Dropdown className="text-end">
+              <Dropdown.Toggle
+                id="dropdownUser1"
+                className="d-block link-dark text-decoration-none"
+                role="button"
+                style={{ backgroundColor: "transparent", border: "none" }}
+
+              >
+                Categories
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu >
+                <Dropdown.Item href="/categories/marketingAndBusiness">
+                  Marketing and Business{" "}
+                </Dropdown.Item>{" "}
+                <Dropdown.Item href="/categories/artsAndPhotography">
+                  Arts and Photography{" "}
+                </Dropdown.Item>{" "}
+                <Dropdown.Item href="/categories/personalFinanceAndEconomics">
+                  Personal Finance and Economics{" "}
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+
+            
+
           </Nav>
 
           <Form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -81,6 +82,7 @@ const NavBar = () => {
                 className="rounded-circle"
               />
             </Dropdown.Toggle>
+            
 
             <Dropdown.Menu className="text-small">
               <Dropdown.Item href="/users/dashboard">Dashboard</Dropdown.Item>

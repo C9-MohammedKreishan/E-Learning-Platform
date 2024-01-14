@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -19,58 +19,63 @@ export default function () {
       .then((res) => {
         console.log(res.data.courses);
         setCourses(res.data.courses);
-
       })
       .catch((err) => {
         console.log(err);
       });
-  },[]);
+  }, []);
 
   return (
     <div>
       <h1>Dashboard</h1>
-      <Container style={{ margin:"5px"}} fluid>
+      <Container style={{ margin: "5px" }} fluid>
         <Row xs={1} md={3} className="g-4">
-
-          { Courses.map((courses, indx) => (
+          {Courses.map((courses, indx) => (
             <Col key={indx}>
               <Card bg="light" className="h-100 d-flex flex-column">
                 <Card.Body className="d-flex flex-column">
                   <Card.Title>{courses.courseId.courseTitle}</Card.Title>
                   <Card.Text>{courses.courseId.Discription}</Card.Text>
-                  <Card.Text style={{ textAlign: "left", fontSize: "20px"}}> By{"  "}
+                  <Card.Text style={{ textAlign: "left", fontSize: "20px" }}>
+                    {" "}
+                    By{"  "}
                     {courses.courseId.courseInstructor.firstName}{" "}
                     {courses.courseId.courseInstructor.lastName}
                   </Card.Text>
                   <div className="mt-auto">
-                  <Button style={{ margin:"5px"}}
-                    className="mb-2"
-                    variant="primary"
-                    onClick={() => {
-                      console.log(test);
-                      axios
-                        .post(
-                          `http://localhost:5000/courses/enrollCourse/${courses._id}`,
-                          {},
-                          {
-                            headers: {
-                              Authorization: `Bearer ${test}`,
-                            },
-                          }
-                        )
-                        .then((res) => {
-                          console.log("res", res);
-                        })
-                        .catch((err) => {
-                          console.log(err);
-                        });
-                    }}
-                  >
-                    Enroll Course
-                  </Button>
-                  <Button style={{ margin:"5px"}} className="mb-2" variant="primary">
-                    Go somewhere
-                  </Button>
+                    <Button
+                      style={{ margin: "5px" }}
+                      className="mb-2"
+                      variant="primary"
+                      onClick={() => {
+                        console.log(test);
+                        axios
+                          .post(
+                            `http://localhost:5000/courses/enrollCourse/${courses._id}`,
+                            {},
+                            {
+                              headers: {
+                                Authorization: `Bearer ${test}`,
+                              },
+                            }
+                          )
+                          .then((res) => {
+                            console.log("res", res);
+                          })
+                          .catch((err) => {
+                            console.log(err);
+                          });
+                      }}
+                    >
+                      Enroll Course
+                    </Button>
+                    <Button
+                      style={{ margin: "5px" }}
+                      className="mb-2"
+                      variant="primary"
+                    >
+                      Go somewhere
+                    </Button>
                   </div>
                 </Card.Body>
               </Card>
