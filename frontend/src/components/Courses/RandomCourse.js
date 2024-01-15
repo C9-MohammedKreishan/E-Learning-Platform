@@ -20,15 +20,7 @@ export default function () {
       });
   }, []);
 
-  useEffect(() => {
-    if (courses.length > 0) {
-      setRandomNumber((prevRandomNumber) => {
-        const newRandomNumber = Math.floor(Math.random() * courses.length);
-        setCourse(courses[newRandomNumber]);
-        return newRandomNumber;
-      });
-    }
-  }, [courses]);
+
   if (!courses) {
     return <div>Loading...</div>;
   }

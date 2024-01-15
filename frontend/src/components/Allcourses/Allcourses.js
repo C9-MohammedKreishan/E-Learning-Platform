@@ -42,23 +42,34 @@ export default function () {
               <Card bg="light" className="h-100 d-flex flex-column">
                 <Card.Body className="d-flex flex-column">
                   <Card.Title>{courses.courseTitle}</Card.Title>
+                  <hr style={{ margin: "10px 0" }} />
+
+                  <Card.Img className="img-fluid"
+                    variant="top"
+                    src={courses.coursePicture}
+                    style={{ width: "445px", height: "400px" }}
+                  />
 
                   <Card.Text>
                     {" "}
-                    <Accordion defaultActiveKey="0">
+                    {/* <Accordion defaultActiveKey="1">
                       <Accordion.Item eventKey="0">
-                        <Accordion.Header>Accordion Item #1</Accordion.Header>
-                        <Accordion.Body>{courses.courseDiscription}</Accordion.Body>
+                        <Accordion.Header>Course Discription</Accordion.Header>
+                        <Accordion.Body>
+                          {courses.courseDiscription}
+                        </Accordion.Body>
                       </Accordion.Item>
-                      
-                    </Accordion>
+                    </Accordion> */}
                   </Card.Text>
                   <Card.Text style={{ textAlign: "left", fontSize: "20px" }}>
                     {" "}
                     By{"  "}
                     {courses.courseInstructor.firstName}{" "}
-                    {courses.courseInstructor.lastName}
+                    {courses.courseInstructor.lastName}{" "}
+                    {courses.courseRate}
+
                   </Card.Text>
+                  
                   <div className="mt-auto">
                     <Button
                       style={{ margin: "5px" }}
@@ -125,32 +136,7 @@ export default function () {
         </Row>
       </Container>
 
-      <Accordion defaultActiveKey="0">
-        <Accordion.Item eventKey="0">
-          <Accordion.Header>Accordion Item #1</Accordion.Header>
-          <Accordion.Body>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </Accordion.Body>
-        </Accordion.Item>
-        <Accordion.Item eventKey="1">
-          <Accordion.Header>Accordion Item #2</Accordion.Header>
-          <Accordion.Body>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </Accordion.Body>
-        </Accordion.Item>
-      </Accordion>
+
     </div>
   );
 }

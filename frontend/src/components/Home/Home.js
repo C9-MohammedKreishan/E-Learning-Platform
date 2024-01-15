@@ -53,11 +53,10 @@ function Home() {
               src="https://res.cloudinary.com/dalwd5c23/image/upload/v1705192445/2_tjhssu.jpg"
               alt="Second slide"
               style={{
-                width: "30%", // Set the width to 30% of the original size
-                height: "500px",// Set the height to 30% of the original size
+                width: "30%", 
+                height: "500px",
                 objectFit: "cover",
-                margin: "auto", // Center the image horizontally
-                // Make sure the image is a block element
+                margin: "auto", 
               }}
             />
 
@@ -68,7 +67,7 @@ function Home() {
           </Carousel.Item>
         </Carousel>
       </div>
-      <RandomCourse />
+      {/* <RandomCourse /> */}
       <Allcourses />
 
       <h1>What to learn next</h1>

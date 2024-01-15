@@ -188,7 +188,7 @@ const enrolledCourse = (req,res)=>{
 }
 // This function creates new course
 const createNewCourse = (req, res) => {
-  const { courseName, courseTitle, courseDiscription, courseCategory } =
+  const { courseName, courseTitle, courseDiscription, courseCategory,coursePicture,courseRate } =
     req.body;
   const courseInstructor = req.token.userId;
   const newCourse = new coursesModel({
@@ -197,6 +197,8 @@ const createNewCourse = (req, res) => {
     courseDiscription,
     courseInstructor,
     courseCategory,
+    coursePicture,
+    courseRate
   });
 
   newCourse
