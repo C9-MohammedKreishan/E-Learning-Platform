@@ -36,7 +36,7 @@ const getCoursesbyInstructor = (req, res) => {
   let InstructorId = req.params.Instructor;
 
   coursesModel
-    .find({}, "courseTitle courseInstructor courseCategory")
+    .find({courseInstructor:InstructorId }, "courseTitle courseInstructor courseCategory")
     .populate("courseInstructor", "firstName lastName")
 
     .then((courses) => {

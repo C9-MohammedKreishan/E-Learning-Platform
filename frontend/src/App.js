@@ -16,15 +16,16 @@ import Footer from "./components/Footer/Footer"
 import OneCourse from "./components/Courses/OneCourse"
 import Categories from "./components/Categories/Categories"
 import RandomCourse from "./components/Courses/RandomCourse";
+import Admin from "./components/Admin/Admin";
 export const userContext = createContext();
 
 function App() {
   const [toggle, setToggle] = useState(true);
-
+  const [role, setRole] = useState("")
   const [token, setToken] = useState(localStorage.getItem("token") || null);
   
   return (
-    <userContext.Provider value={{ toggle, setToggle, token, setToken }}>
+    <userContext.Provider value={{ toggle, setToggle, token, setToken,role,setRole }}>
 
       <div className="App">
         <h1>E Learning</h1>
@@ -41,6 +42,9 @@ function App() {
           <Route path="/users/allcourses" element={<Allcourses />} />
           <Route path="/users/onecourse/:courseId" element={<OneCourse />} />
           <Route path="/users/onecourse/randomcourse" element={<RandomCourse />} />
+          <Route path="/users/admin" element={<Admin />} />
+
+
 
           <Route path="/users/categories" element={<Categories />} />
           <Route

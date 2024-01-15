@@ -30,6 +30,8 @@ const NavBar = () => {
 
           <Nav className="col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <Nav.Link href="/Home">Home</Nav.Link>
+            <Nav.Link href="/users/admin">Admin</Nav.Link>
+
             <Nav.Link href="/users/register">Register</Nav.Link>
             <Nav.Link href="/users/login">Login</Nav.Link>
             <Dropdown className="text-end">

@@ -13,7 +13,8 @@ import {
 import { userContext } from "../../App";
 
 const Login = () => {
-  const { setToggle } = useContext(userContext);
+  
+  const { setToggle, role ,setRole} = useContext(userContext);
   const { setToken } = useContext(userContext);
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
@@ -61,12 +62,25 @@ const Login = () => {
                 })
                 .then((res) => {
                   setUserResult(res.data.message);
+                  console.log(res.data.role);
+                  console.log(res.data.role.role);
+
                   setToggle(false);
                   setToken(res.data.token);
                   localStorage.setItem("token", res.data.token);
+                  localStorage.setItem("userId", res.data.userId);
+
 
                   console.log(res.data.token);
-                  redirect("/users/dashboard");
+
+                  if (res.data.role.role === "INSTRUCTOR"){
+                    
+                    setRole(res.data.userId)
+                    redirect("/users/admin")
+                  }else{
+                    redirect("/users/dashboard");
+
+                  }
                 })
                 .catch((err) => {
                   console.log(err);
@@ -78,7 +92,7 @@ const Login = () => {
           </MDBBtn>
           <div className="text-center">
             <p>
-              Not a member? <a href="#!">Register</a>
+              Not a member? <a href="/users/register">Register</a>
             </p>
             <p>or sign up with:</p>
 
