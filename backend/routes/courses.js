@@ -36,7 +36,9 @@ coursesRouter.get("/enrollCourse", authentication,getCoursesbyUser)
 coursesRouter.get("/search_2/:id", getCoursebyId);
 coursesRouter.post("/",authentication,authorization("CREATE_COURSES"),createNewCourse);
 coursesRouter.put("/:id", updateCourseById);
-coursesRouter.delete("/:id", deleteCourseById);
+// coursesRouter.delete("/:id" , authentication, deleteCourseById);
+coursesRouter.delete("/:id" ,deleteCourseById);
+
 coursesRouter.delete("/:id/author", deleteCourseByInstructor);
 
 coursesRouter.post(

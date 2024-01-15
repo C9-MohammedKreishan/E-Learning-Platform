@@ -281,7 +281,7 @@ const updateCourseById = (req, res) => {
 // This function deletes a specific course by its id
 const deleteCourseById = (req, res) => {
   const id = req.params.id;
-  coursesModel
+  enrolledCourseModel
     .findByIdAndDelete(id)
     .then((result) => {
       if (!result) {

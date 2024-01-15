@@ -4,11 +4,16 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import { useNavigate } from "react-router-dom";
+
 import { Container } from "react-bootstrap";
 export default function () {
   const [Courses, setCourses] = useState([]);
   const test = localStorage.getItem("token");
+  const [SelectCourse, setSelectCourse] = useState("");
 
+
+  const redirect = useNavigate();
   useEffect(() => {
     axios
       .get(`http://localhost:5000/courses/enrollCourse`, {
@@ -48,10 +53,41 @@ export default function () {
                       className="mb-2"
                       variant="primary"
                       onClick={() => {
+                        axios
+                          .get(
+                            `http://localhost:5000/courses/search_2/${courses.courseId._id}`,
+                            {},
+                            {},
+                            {
+                              headers: {
+                                Authorization: `Bearer ${test}`,
+                              },
+                            }
+                          )
+                          .then((res) => {
+                            console.log(
+                              "res",
+                              res.data.course
+                            );
+                            setSelectCourse(res.data.course);
+                            redirect(`/users/onecourse/${courses.courseId._id}`);
+                          })
+                          .catch((err) => {
+                            console.log(err);
+                          });
+                      }}
+                    >
+                      Viwe Course
+                    </Button>
+                    <Button
+                      style={{ margin: "5px" }}
+                      className="mb-2"
+                      variant="primary"
+                      onClick={() => {
                         console.log(test);
                         axios
-                          .post(
-                            `http://localhost:5000/courses/enrollCourse/${courses._id}`,
+                          .delete(
+                            `http://localhost:5000/courses/${courses._id}`,
                             {},
                             {
                               headers: {
@@ -67,14 +103,7 @@ export default function () {
                           });
                       }}
                     >
-                      Enroll Course
-                    </Button>
-                    <Button
-                      style={{ margin: "5px" }}
-                      className="mb-2"
-                      variant="primary"
-                    >
-                      Go somewhere
+                      Delet Course
                     </Button>
                   </div>
                 </Card.Body>
