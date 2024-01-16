@@ -6,7 +6,6 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { Container } from "react-bootstrap";
 
-
 export default function () {
   const [CoursesbyCategory, setCoursesbyCategory] = useState([]);
   useEffect(() => {
@@ -24,8 +23,18 @@ export default function () {
   }, []);
   return (
     <div>
-      <h1> Arts and Photography</h1>
-
+      
+      <h1
+        style={{
+          textAlign: "center",
+          fontSize: "2.5rem",
+          marginTop: "20px",
+          marginBottom: "20px",
+        }}
+      >
+        Arts and Photography
+      </h1>
+      <hr style={{ margin: "10px 0" }} />
       <Container style={{ margin: "5px" }} fluid>
         <Row xs={1} md={3} className="g-4">
           {CoursesbyCategory.map((courses, indx) => (
@@ -33,13 +42,20 @@ export default function () {
               <Card bg="light" className="h-100 d-flex flex-column">
                 <Card.Body className="d-flex flex-column">
                   <Card.Title>{courses.courseTitle}</Card.Title>
-                  <Card.Text>{courses.courseDiscription}</Card.Text>
+                  <div style={{ flex: 1, marginLeft: "20px" }}>
+                    <Card.Img
+                      variant="top"
+                      src={courses.coursePicture}
+                      style={{ width: "90%", height: "400px" }}
+                    />
+                  </div>
                   <Card.Text style={{ textAlign: "left", fontSize: "20px" }}>
                     {" "}
                     By{"  "}
                     {courses.courseInstructor.firstName}{" "}
                     {courses.courseInstructor.lastName}
                   </Card.Text>
+
                   <div className="mt-auto">
                     <Button
                       style={{ margin: "5px" }}

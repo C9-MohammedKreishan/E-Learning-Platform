@@ -37,7 +37,6 @@ export default function () {
           fontSize: "2.5rem",
           marginTop: "20px",
           marginBottom: "20px",
-          color: "#007BFF",
         }}
       >
         Dashboard

@@ -77,8 +77,9 @@ export default function () {
           </Card.Body>
           <Card.Footer className="d-flex justify-content-between align-items-center">
             <div>
-              <p>Comments: {course.comments}</p>
-              <p>Rating: {course.rating}</p>
+              <strong>Instructor:</strong>{" "}
+              {`${course.courseInstructor.firstName} ${course.courseInstructor.lastName}`}
+              <p>Rating: {course.courseRate}</p>
             </div>
             <Button
               style={{ marginTop: "10px" }}
