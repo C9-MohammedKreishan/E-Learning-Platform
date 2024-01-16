@@ -56,12 +56,17 @@ export default function () {
                 <Card bg="light" className="h-100 d-flex flex-column">
                   <Card.Body className="d-flex flex-column">
                     <Card.Title>{courses.courseId.courseTitle}</Card.Title>
-                    <Card.Text>{courses.courseId.Discription}</Card.Text>
+                    <div style={{ flex: 1, marginLeft: "20px" }}>
+                    <Card.Img
+                      variant="top"
+                      src={courses.courseId.coursePicture}
+                      style={{ width: "90%", height: "400px" }}
+                    />
+                  </div>
                     <Card.Text style={{ textAlign: "left", fontSize: "20px" }}>
                       {" "}
-                      By{"  "}
-                      {courses.courseId.courseInstructor.firstName}{" "}
-                      {courses.courseId.courseInstructor.lastName}
+                      Rate: {"      "}
+                      {courses.courseId.courseRate}{" "}
                     </Card.Text>
                     <div className="mt-auto">
                       <Button

@@ -30,10 +30,9 @@ const NavBar = () => {
 
           <Nav className="col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <Nav.Link href="/Home">Home</Nav.Link>
-            <Nav.Link href="/users/admin">Admin</Nav.Link>
+            <Nav.Link href="/Home">About Us</Nav.Link>
 
-            <Nav.Link href="/users/register">Register</Nav.Link>
-            <Nav.Link href="/users/login">Login</Nav.Link>
+
             <Dropdown className="text-end">
               <Dropdown.Toggle
                 id="dropdownUser1"
@@ -94,6 +93,8 @@ const NavBar = () => {
               <Dropdown.Item href="/users/signOut">Sign out</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
+          <Nav.Link style={{ margin: "8px" }} href="/users/login">Login</Nav.Link>
+
         </Navbar>
       </Container>
     </header>

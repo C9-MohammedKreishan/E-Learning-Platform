@@ -52,7 +52,13 @@ export default function () {
               <Card bg="light" className="h-100 d-flex flex-column">
                 <Card.Body className="d-flex flex-column">
                   <Card.Title>{courses.courseTitle}</Card.Title>
-                  <Card.Text>{courses.Discription}</Card.Text>
+                  <div style={{ flex: 1, marginLeft: "20px" }}>
+                    <Card.Img
+                      variant="top"
+                      src={courses.coursePicture}
+                      style={{ width: "90%", height: "400px" }}
+                    />
+                  </div>
                   <Card.Text style={{ textAlign: "left", fontSize: "20px" }}>
                     {" "}
                     By{"  "}
@@ -272,7 +278,7 @@ export default function () {
             variant="primary"
             type="submit"
           >
-            Submit
+            Create
           </Button>
         </Form>
       </Container>
