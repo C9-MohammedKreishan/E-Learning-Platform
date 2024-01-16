@@ -62,8 +62,7 @@ const Login = () => {
                 })
                 .then((res) => {
                   setUserResult(res.data.message);
-                  console.log(res.data.role);
-                  console.log(res.data.role.role);
+                  console.log(res.data.token);
 
                   setToggle(false);
                   setToken(res.data.token);

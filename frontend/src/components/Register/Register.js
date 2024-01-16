@@ -95,6 +95,7 @@ export default function () {
                         password: userPassword,
                         age: userAge,
                         country: userCountry,
+                        role:"6599315c8d75eb055a60355e"
                       })
                       .then((res) => {
                         console.log(res.data.message);

@@ -149,9 +149,8 @@ function Home() {
 
       <h1>Title</h1>
       <hr style={{ margin: "10px 0" }} />
-      <h1>What to learn next</h1>
-      <h1>Recommended for you</h1>
-      <h1>Learners are viewing</h1>
+      
+
     </div>
   );
 }
