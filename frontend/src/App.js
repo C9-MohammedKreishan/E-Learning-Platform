@@ -17,6 +17,8 @@ import OneCourse from "./components/Courses/OneCourse"
 import Categories from "./components/Categories/Categories"
 import RandomCourse from "./components/Courses/RandomCourse";
 import Admin from "./components/Admin/Admin";
+import ContactUs  from "./ContactUs/ContactUs";
+import AboutUs from "./components/AboutUs/AboutUs";
 export const userContext = createContext();
 
 function App() {
@@ -36,6 +38,10 @@ function App() {
           <Route path="/users/register" element={<Register />} />
           <Route path="/users/login" element={<Login />} />
           <Route path="/users/signOut" element={<Signout />} />
+          <Route path="/users/contactUs" element={<ContactUs />} />
+          <Route path="/users/aboutUs" element={<AboutUs />} />
+
+
 
           <Route path="/users/dashboard" element={<Dashboard />} />
           <Route path="/users/allcourses" element={<Allcourses />} />

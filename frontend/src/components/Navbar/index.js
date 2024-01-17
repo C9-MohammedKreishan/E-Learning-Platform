@@ -18,9 +18,12 @@ const NavBar = () => {
       <Container>
         <Navbar className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <Navbar.Brand
-            href="/"
+            href="/Home"
+            src="https://img.freepik.com/free-vector/e-learning-global-community_24877-60109.jpg?w=1380&t=st=1705454600~exp=1705455200~hmac=3bec94245710a46ccbafbfe564339bb1698e96ea0865c74827b4e4f23ac7b6fb"
             className="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none"
           >
+            <img style={{ width:"20px"}} src="https://img.freepik.com/free-vector/e-learning-global-community_24877-60109.jpg?w=1380&t=st=1705454600~exp=1705455200~hmac=3bec94245710a46ccbafbfe564339bb1698e96ea0865c74827b4e4f23ac7b6fb"></img>
+
             <svg
               className="bi me-2"
               width="40"
@@ -36,11 +39,9 @@ const NavBar = () => {
             <Nav.Link style={{ color: "white" }} href="/Home">
               Home
             </Nav.Link>
-            <Nav.Link style={{ color: "white" }} href="/Home">
+            <Nav.Link style={{ color: "white" }} href="/users/aboutus">
               About Us
             </Nav.Link>
-
-
 
             <Dropdown
               style={{
