@@ -68,6 +68,7 @@ const Login = () => {
                   setToken(res.data.token);
                   localStorage.setItem("token", res.data.token);
                   localStorage.setItem("userId", res.data.userId);
+                  localStorage.setItem("Role",res.data.role.role)
 
 
                   console.log(res.data.token);

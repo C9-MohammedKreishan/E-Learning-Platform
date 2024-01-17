@@ -7,11 +7,16 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Accordion from "react-bootstrap/Accordion";
+import { useNavigate } from "react-router-dom";
 
 export default function () {
   const { courseId } = useParams();
   const [category, setCategory] = useState([]);
   const [course, setCourse] = useState(null);
+  const [Courses, setCourses] = useState([]);
+  const test = localStorage.getItem("token");
+  const [SelectCourse, setSelectCourse] = useState("");
+  const redirect = useNavigate();
 
   useEffect(() => {
     axios
@@ -93,7 +98,7 @@ export default function () {
           </Card.Footer>
         </Card>
       </Container>
-
+{/* Category */}
       <h1 style={{ margin: "10px 0" }}>Learners are viewing</h1>
       <hr style={{ margin: "10px 0" }} />
 
@@ -162,8 +167,27 @@ export default function () {
                       style={{ margin: "5px" }}
                       className="mb-2"
                       variant="primary"
+                      onClick={() => {
+                        axios
+                          .get(
+                            `http://localhost:5000/courses/search_2/${courses._id}`,
+                            
+                            
+                          )
+                          .then((res) => {
+                            console.log(
+                              "res",
+                              res.data.course._id
+                            );
+                            setSelectCourse(res.data.course);
+                            redirect(`/users/onecourse/${res.data.course._id}`);
+                          })
+                          .catch((err) => {
+                            console.log(err);
+                          });
+                      }}
                     >
-                      Go somewhere
+                      Viwe Course
                     </Button>
                   </div>
                 </Card.Body>

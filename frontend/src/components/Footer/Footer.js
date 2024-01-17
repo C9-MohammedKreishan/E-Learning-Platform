@@ -12,7 +12,7 @@ export default function App() {
     <MDBFooter bgColor="light" className="text-center text-lg-start text-muted">
       <section>
         <MDBContainer
-          style={{ paddingTop: "5px", background: "#063970", color: "white", textDecoration:"none" }}
+          style={{paddingTop: "5px", background: "#063970", color: "white", textDecoration:"none" }}
           className="text-center text-md-start mt-5"
           fluid
         >
