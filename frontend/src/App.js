@@ -28,7 +28,6 @@ function App() {
     <userContext.Provider value={{ toggle, setToggle, token, setToken,role,setRole }}>
 
       <div className="App">
-        <h1>E Learning</h1>
 
         <NavBar />
 

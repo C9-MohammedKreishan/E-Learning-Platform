@@ -7,10 +7,14 @@ import {
   FormControl,
   Dropdown,
 } from "react-bootstrap";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
 const NavBar = () => {
   return (
-    <header className="p-3 mb-3 border-bottom">
+    <header
+      style={{ paddingTop: "5px", background: "#063970", color: "white" }}
+      className="p-3 mb-3 border-bottom"
+    >
       <Container>
         <Navbar className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <Navbar.Brand
@@ -29,22 +33,36 @@ const NavBar = () => {
           </Navbar.Brand>
 
           <Nav className="col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <Nav.Link href="/Home">Home</Nav.Link>
-            <Nav.Link href="/Home">About Us</Nav.Link>
+            <Nav.Link style={{ color: "white" }} href="/Home">
+              Home
+            </Nav.Link>
+            <Nav.Link style={{ color: "white" }} href="/Home">
+              About Us
+            </Nav.Link>
 
 
-            <Dropdown className="text-end">
+
+            <Dropdown
+              style={{
+                paddingTop: "5px",
+                border: "none",
+                background: "#063970",
+                color: "white",
+              }}
+            >
               <Dropdown.Toggle
-                id="dropdownUser1"
-                className="d-block link-dark text-decoration-none"
-                role="button"
-                style={{ backgroundColor: "transparent", border: "none" }}
-
+                style={{
+                  paddingTop: "5px",
+                  paddingLeft: "5px",
+                  background: "#063970",
+                  color: "white",
+                }}
+                id="dropdown-basic"
               >
                 Categories
               </Dropdown.Toggle>
 
-              <Dropdown.Menu >
+              <Dropdown.Menu>
                 <Dropdown.Item href="/categories/marketingAndBusiness">
                   Marketing and Business{" "}
                 </Dropdown.Item>{" "}
@@ -56,9 +74,6 @@ const NavBar = () => {
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-
-            
-
           </Nav>
 
           <Form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -83,7 +98,6 @@ const NavBar = () => {
                 className="rounded-circle"
               />
             </Dropdown.Toggle>
-            
 
             <Dropdown.Menu className="text-small">
               <Dropdown.Item href="/users/dashboard">Dashboard</Dropdown.Item>
@@ -93,8 +107,9 @@ const NavBar = () => {
               <Dropdown.Item href="/users/signOut">Sign out</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <Nav.Link style={{ margin: "8px" }} href="/users/login">Login</Nav.Link>
-
+          <Nav.Link style={{ margin: "8px" }} href="/users/login">
+            Login
+          </Nav.Link>
         </Navbar>
       </Container>
     </header>
