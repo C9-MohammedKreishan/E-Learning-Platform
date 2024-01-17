@@ -89,7 +89,7 @@ function Home() {
               Explore the world of digital marketing and effective business
               strategies. Elevate your skills and career. Enroll now!
             </p>
-            <Button variant="primary" href="/enroll/photography">
+            <Button variant="primary" href="/categories/marketingAndBusiness">
               Enroll Now
             </Button>
           </Carousel.Caption>
@@ -114,7 +114,7 @@ function Home() {
               Capture moments and express your creativity through photography.
               Join our course and enhance your artistic skills.
             </p>
-            <Button variant="primary" href="/enroll/digital-marketing">
+            <Button variant="primary" href="/categories/artsAndPhotography">
               Enroll Now
             </Button>
           </Carousel.Caption>

@@ -38,8 +38,8 @@ export default function () {
       <Container style={{ margin: "8px" }} fluid>
         <Row xs={1} md={3} className="g-4">
           {Courses.map((courses, indx) => (
-            <Col key={indx}>
-              <Card bg="light" className="h-100 d-flex flex-column">
+            <Col  key={indx}>
+              <Card bg="light" className="h-100 d-flex flex-column" >
                 <Card.Body className="d-flex flex-column">
                   <Card.Title>{courses.courseTitle}</Card.Title>
                   <hr style={{ margin: "10px 0" }} />

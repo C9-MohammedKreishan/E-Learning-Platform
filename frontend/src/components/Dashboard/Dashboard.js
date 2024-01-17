@@ -46,7 +46,7 @@ export default function () {
           {Courses.length === 0 ? (
             <p
               className="mx-auto"
-              style={{ fontSize: "1.5rem", color: "#007BFF" }}
+              style={{ fontSize: "4rem", color: "#007BFF" }}
             >
               No courses found. Enroll in a course to get started!
             </p>

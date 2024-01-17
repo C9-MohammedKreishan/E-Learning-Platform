@@ -5,9 +5,14 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { Container } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 export default function () {
   const [CoursesbyCategory, setCoursesbyCategory] = useState([]);
+  const test = localStorage.getItem("token");
+  const redirect = useNavigate();
+  const [SelectCourse, setSelectCourse] = useState("");
+
   useEffect(() => {
     axios
       .get(
@@ -23,7 +28,6 @@ export default function () {
   }, []);
   return (
     <div>
-      
       <h1
         style={{
           textAlign: "center",
@@ -87,8 +91,24 @@ export default function () {
                       style={{ margin: "5px" }}
                       className="mb-2"
                       variant="primary"
+                      onClick={() => {
+                        axios
+                          .get(
+                            `http://localhost:5000/courses/search_2/${courses._id}`
+                          )
+                          .then((res) => {
+                            console.log("res", res.data.course);
+                            setSelectCourse(res.data.course);
+                            redirect(
+                              `/users/onecourse/${courses._id}`
+                            );
+                          })
+                          .catch((err) => {
+                            console.log(err);
+                          });
+                      }}
                     >
-                      Go somewhere
+                      View Course
                     </Button>
                   </div>
                 </Card.Body>
