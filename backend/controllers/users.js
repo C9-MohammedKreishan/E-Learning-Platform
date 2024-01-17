@@ -1,10 +1,11 @@
 const usersModel = require("../models/userSchema");
+const custoumerModel = require("../models/contactUsSchema");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 // This function creates a new author (new user)
 const register = (req, res) => {
-  const { firstName, lastName, age, country, email, password,role } = req.body;
+  const { firstName, lastName, age, country, email, password, role } = req.body;
   const user = new usersModel({
     firstName,
     lastName,
@@ -12,8 +13,7 @@ const register = (req, res) => {
     country,
     email,
     password,
-    role // EX: "64bd1d27a4a6a9a2de27d371" add role _id here,
-   
+    role, // EX: "64bd1d27a4a6a9a2de27d371" add role _id here,
   });
   user
     .save()
@@ -91,8 +91,38 @@ const login = (req, res) => {
       });
     });
 };
-
+const customerFeedBake = (req, res) => {
+  const { yourName, email, message } = req.body;
+  const user = new custoumerModel({
+    yourName,
+    email,
+    message,
+  });
+  user
+    .save()
+    .then((result) => {
+      res.status(201).json({
+        success: true,
+        message: `Thank you for your feed backe`,
+        author: result,
+      });
+    })
+    .catch((err) => {
+      if (err.keyPattern) {
+        return res.status(409).json({
+          success: false,
+          message: `The email already exists`,
+        });
+      }
+      res.status(500).json({
+        success: false,
+        message: `Server Error`,
+        err: err.message,
+      });
+    });
+};
 module.exports = {
   register,
   login,
+  customerFeedBake
 };

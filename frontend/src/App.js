@@ -19,6 +19,7 @@ import RandomCourse from "./components/Courses/RandomCourse";
 import Admin from "./components/Admin/Admin";
 import ContactUs  from "./ContactUs/ContactUs";
 import AboutUs from "./components/AboutUs/AboutUs";
+import  FrequentQ from "./components/F&Q/FrequentQ";
 export const userContext = createContext();
 
 function App() {
@@ -40,6 +41,8 @@ function App() {
           <Route path="/users/signOut" element={<Signout />} />
           <Route path="/users/contactUs" element={<ContactUs />} />
           <Route path="/users/aboutUs" element={<AboutUs />} />
+          <Route path="/users/frequentq" element={<FrequentQ />} />
+
 
 
 

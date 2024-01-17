@@ -22,12 +22,14 @@ export default function () {
     axios
       .get(`http://localhost:5000/courses/search_2/${courseId}`)
       .then((res) => {
+        console.log(res.data.course);
         setCourse(res.data.course);
         return axios.get(
           `http://localhost:5000/courses/search_category/${res.data.course.courseCategory}/test`
         );
       })
       .then((res) => {
+        console.log(res.data);
         setCategory(res.data.courses);
       })
       .catch((err) => {
@@ -83,6 +85,7 @@ export default function () {
           <Card.Footer className="d-flex justify-content-between align-items-center">
             <div>
               <strong>Instructor:</strong>{" "}
+              {console.log(course.courseInstructor)}
               {`${course.courseInstructor.firstName} ${course.courseInstructor.lastName}`}
               <p>Rating: {course.courseRate}</p>
             </div>

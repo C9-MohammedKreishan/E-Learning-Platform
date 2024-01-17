@@ -10,11 +10,11 @@ import { Container, Row, Card, Col, Form, Button } from "react-bootstrap";
 import axios from "axios";
 
 export default function () {
-    const [userName, setUserName] = useState("");
-    const [userEmail, setUserEmail] = useState("");
-    const [userMessage, setUserMessage] = useState("");
+  const [userName, setUserName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [userMessage, setUserMessage] = useState("");
 
-    const [result, setUserResult] = useState("");
+  const [result, setUserResult] = useState("");
   return (
     <Container>
       <Row>
@@ -84,8 +84,8 @@ export default function () {
                         placeholder="Enter your email"
                         required
                         onChange={(e) => {
-                            setUserEmail(e.target.value);
-                          }}
+                          setUserEmail(e.target.value);
+                        }}
                       />
                     </Form.Group>
                   </Row>
@@ -102,30 +102,34 @@ export default function () {
                         placeholder="Enter your message"
                         required
                         onChange={(e) => {
-                            setUserMessage(e.target.value);
-                          }}
+                          setUserMessage(e.target.value);
+                        }}
                       />
                     </Form.Group>
                   </Row>
 
-                  <Button variant="primary" type="submit"             onClick={() => {
-              axios
-                .post("http://localhost:5000/users/customerfeedbake", {
-                  email: userEmail,
-                  yourName: userName,
-                  message:userMessage
-                })
-                .then((res) => {
-                  setUserResult(res.data.message);
-                })
-                .catch((err) => {
-                  console.log(err);
-                  setUserResult(err.response.data.message);
-                });
-            }}>
+                  <Button
+                    variant="primary"
+                    type="submit"
+                    onClick={() => {
+                      axios
+                        .post("http://localhost:5000/users/customerfeedbake", {
+                          email: userEmail,
+                          yourName: userName,
+                          message: userMessage,
+                        })
+                        .then((res) => {
+                          setUserResult(res.data.message);
+                        })
+                        .catch((err) => {
+                          console.log(err);
+                          setUserResult(err.response.data.message);
+                        });
+                    }}
+                  >
                     Send Message
                   </Button>
-                  <p style={{paddingTop:"5px"}}>{result}</p>
+                  <p style={{ paddingTop: "5px" }}>{result}</p>
                 </Form>
               </section>
             </Card.Body>

@@ -26,6 +26,10 @@ export default function () {
         console.log(err);
       });
   }, []);
+
+  if (!CoursesbyCategory) {
+    return <div>Loading...</div>;
+  }
   return (
     <div>
       <h1

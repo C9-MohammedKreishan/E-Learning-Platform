@@ -133,7 +133,7 @@ const getCoursebyId = (req, res) => {
   let id = req.params.id;
   coursesModel
     .findById(id)
-    .populate("courseInstructor", "firstName -_id")
+    .populate("courseInstructor", "firstName lastName -_id")
     .exec()
     .then((course) => {
       if (!course) {
