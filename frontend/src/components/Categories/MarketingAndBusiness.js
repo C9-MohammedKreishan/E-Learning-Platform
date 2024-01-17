@@ -28,7 +28,42 @@ export default function () {
   }, []);
   return (
     <div>
-      
+            <div>
+      <Container fluid>
+        <Row>
+          <Col xs={12} md={4}>
+            <img
+              src="https://res.cloudinary.com/dalwd5c23/image/upload/v1705440548/pexels-lukas-590016_jqvw8m.jpg"  
+              alt="Category Image"
+              style={{ width: '100%', height: 'auto' }}
+            />
+          </Col>
+          <Col xs={12} md={8}>
+            <div>
+              <h1
+                style={{
+                  textAlign: 'left',
+                  fontSize: '2.5rem',
+                  marginTop: '20px',
+                  marginBottom: '20px',
+                  
+                }}
+              >
+                Markiting and Business
+              </h1>
+              <hr style={{ margin: '10px 0' }} />
+              <p style={{fontFamily:"initial",fontSize:"20px", textAlign:"left"}}>Embark on a transformative journey in Marketing and Business with our dynamic courses designed to elevate your skills and strategic thinking. From mastering the latest digital marketing trends to honing essential business acumen, our curriculum covers the spectrum of contemporary marketing strategies and effective business practices. Dive into real-world case studies, learn from industry experts, and gain practical insights that will empower you to thrive in today's competitive landscape. Whether you're looking to enhance your marketing prowess or sharpen your business acumen, our courses provide a pathway to success. Join us and unlock the keys to strategic marketing and business excellence, propelling your career to new heights. </p>
+              
+              <Container style={{ margin: '5px' }} fluid>
+                <Row xs={1} md={3} className="g-4">
+                </Row>
+              </Container>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </div>
+    
       <h1
         style={{
           textAlign: "center",
@@ -37,7 +72,7 @@ export default function () {
           marginBottom: "20px",
         }}
       >
-        Marketing and Business
+        Courses
       </h1>
       <hr style={{ margin: "10px 0" }} />
       <Container style={{ margin: "5px" }} fluid>

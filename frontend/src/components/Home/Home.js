@@ -23,7 +23,6 @@ function Home() {
         console.log(err);
       });
   }, []);
-
   return (
     <div>
       <div style={{ padding: "25px", margin: "25px" }}>
@@ -36,19 +35,36 @@ function Home() {
                 width: "100%",
                 height: "500px",
                 objectFit: "cover",
+                
+              }}
+            />
+
+            <Carousel.Caption style={{color:"black"}}>
+              <h3>Welcome to Our E-Learning Platform</h3>
+              <p>Explore a world of knowledge and opportunities.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              src="https://res.cloudinary.com/dalwd5c23/image/upload/v1705520544/pexels-cottonbro-studio-3826678_c9cqau.jpg"
+              alt="Second slide"
+              style={{
+                width: "100%",
+                height: "500px",
+                objectFit: "cover",
               }}
             />
 
             <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <h3>Discover Inspiring Learning</h3>
+              <p>Embark on a journey of education with our diverse courses.</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <img
               className="d-block w-100"
               src="https://res.cloudinary.com/dalwd5c23/image/upload/v1705192445/2_tjhssu.jpg"
-              alt="Second slide"
+              alt="Third slide"
               style={{
                 width: "30%",
                 height: "500px",
@@ -58,12 +74,14 @@ function Home() {
             />
 
             <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <h3>Unlock Your Potential</h3>
+              <p>Discover new horizons and expand your skills with us.</p>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
       </div>
+      
+
       {/* <RandomCourse /> */}
       <Allcourses />
       <hr style={{ margin: "10px 0" }} />
@@ -147,10 +165,8 @@ function Home() {
         </Carousel.Item>
       </Carousel>
 
-      <h1>Title</h1>
+      <h1></h1>
       <hr style={{ margin: "10px 0" }} />
-      
-
     </div>
   );
 }
