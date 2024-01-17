@@ -2,7 +2,6 @@ const coursesModel = require("../models/courseSchema");
 const categoryModel = require("../models/categorySchema");
 const enrolledCourseModel = require("../models/enrolledSchema");
 
-
 // This function returns the courses
 const getAllCourses = (req, res) => {
   coursesModel
@@ -36,7 +35,10 @@ const getCoursesbyInstructor = (req, res) => {
   let InstructorId = req.params.Instructor;
 
   coursesModel
-    .find({courseInstructor:InstructorId }, "courseTitle courseInstructor courseCategory")
+    .find(
+      { courseInstructor: InstructorId },
+      "courseTitle courseInstructor courseCategory"
+    )
     .populate("courseInstructor", "firstName lastName")
 
     .then((courses) => {
@@ -68,13 +70,14 @@ const getCoursesbyUser = (req, res) => {
 
   enrolledCourseModel
     // .find({userId:UserId},"courseTitle courseInstructor courseCategory")
-    .find({userId:UserId})
+    .find({ userId: UserId })
+    // .populate("courseInstructor", "firstName lastName -_id")
+    // .populate("courseId")
+    .populate({ path: "courseId", populate: { path: "courseInstructor", select: "firstName lastName" }})
 
-    .populate("courseId")
-.exec()
-  
+    .exec()
+
     .then((courses) => {
-     
       if (!courses.length) {
         return res.status(404).json({
           success: false,
@@ -98,15 +101,13 @@ const getCoursesbyUser = (req, res) => {
 
 //This function returns courses by Instructor
 const getCoursesbyCategory = (req, res) => {
-  
-  const categoryId = req.params.categoryId 
+  const categoryId = req.params.categoryId;
 
   coursesModel
-    .find({courseCategory: categoryId})
+    .find({ courseCategory: categoryId })
     .populate("courseInstructor", "firstName lastName")
 
     .then((courses) => {
-     
       if (!courses.length) {
         return res.status(404).json({
           success: false,
@@ -158,38 +159,44 @@ const getCoursebyId = (req, res) => {
 };
 
 // Enrool Courses
-const enrolledCourse = (req,res)=>{
-    const userId = req.token.userId;
-    const  enrolledDate = new Date();
-    const {courseId} = req.params
-    
-    const newCourse = new enrolledCourseModel({
-        courseId,
-        userId,
-        enrolledDate
-      });
+const enrolledCourse = (req, res) => {
+  const userId = req.token.userId;
+  const enrolledDate = new Date();
+  const { courseId } = req.params;
 
-      newCourse
-      .save()
-      .then((course) => {
-        res.status(201).json({
-          success: true,
-          message: `Course enrooled`,
-          course: course,
-        });
-      })
-      .catch((err) => {
-        res.status(500).json({
-          success: false,
-          message: `Server Error`,
-          err: err.message,
-        });
+  const newCourse = new enrolledCourseModel({
+    courseId,
+    userId,
+    enrolledDate,
+  });
+
+  newCourse
+    .save()
+    .then((course) => {
+      res.status(201).json({
+        success: true,
+        message: `Course enrooled`,
+        course: course,
       });
-}
+    })
+    .catch((err) => {
+      res.status(500).json({
+        success: false,
+        message: `Server Error`,
+        err: err.message,
+      });
+    });
+};
 // This function creates new course
 const createNewCourse = (req, res) => {
-  const { courseName, courseTitle, courseDiscription, courseCategory,coursePicture,courseRate } =
-    req.body;
+  const {
+    courseName,
+    courseTitle,
+    courseDiscription,
+    courseCategory,
+    coursePicture,
+    courseRate,
+  } = req.body;
   const courseInstructor = req.token.userId;
   const newCourse = new coursesModel({
     courseName,
@@ -198,7 +205,7 @@ const createNewCourse = (req, res) => {
     courseInstructor,
     courseCategory,
     coursePicture,
-    courseRate
+    courseRate,
   });
 
   newCourse
@@ -221,13 +228,10 @@ const createNewCourse = (req, res) => {
 
 const createNewCategory = (req, res) => {
   const { categoryName } = req.body;
- 
 
   const newCategory = new categoryModel({
     categoryName,
   });
-
- 
 
   newCategory
     .save()
@@ -342,5 +346,5 @@ module.exports = {
   createNewCategory,
   getCoursesbyCategory,
   enrolledCourse,
-  getCoursesbyUser
+  getCoursesbyUser,
 };

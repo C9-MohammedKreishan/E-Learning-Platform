@@ -75,6 +75,11 @@ export default function () {
                         <Card.Text
                           style={{ textAlign: "left", fontSize: "20px" }}
                         >
+                          Instructor: {courses.courseId.courseInstructor.firstName} {courses.courseId.courseInstructor.lastName}
+                        </Card.Text>
+                        <Card.Text
+                          style={{ textAlign: "left", fontSize: "20px" }}
+                        >
                           Rate: {courses.courseId.courseRate}
                         </Card.Text>
                         <div className="mt-auto">
@@ -122,7 +127,13 @@ export default function () {
                                   }
                                 )
                                 .then((res) => {
+                                  // get cor
+                                  const resultt1=Courses.filter((e,i)=>
+                                  {
+                                    return e._id!==courses._id
+                                  })
                                   console.log("res", res);
+                                  setCourses(resultt1)
                                 })
                                 .catch((err) => {
                                   console.log(err);

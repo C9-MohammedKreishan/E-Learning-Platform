@@ -17,6 +17,7 @@ export default function () {
   const test = localStorage.getItem("token");
   const [SelectCourse, setSelectCourse] = useState("");
   const redirect = useNavigate();
+  // const history=useHistory();
 
   useEffect(() => {
     axios
@@ -35,7 +36,7 @@ export default function () {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [courseId]);
 
   if (!course) {
     return <div>Loading...</div>;
@@ -188,6 +189,7 @@ export default function () {
                           .catch((err) => {
                             console.log(err);
                           });
+                        redirect(`/users/onecourse/${course._id}`);
                       }}
                     >
                       Viwe Course
