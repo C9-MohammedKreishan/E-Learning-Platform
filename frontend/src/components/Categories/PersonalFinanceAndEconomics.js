@@ -49,7 +49,7 @@ export default function () {
                   
                 }}
               >
-                Markiting and Business
+               Personal Finance and Economics
               </h1>
               <hr style={{ margin: '10px 0' }} />
               <p style={{fontFamily:"initial",fontSize:"20px", textAlign:"left"}}>Take control of your financial future with our engaging courses in Personal Finance and Economics. Explore the fundamentals of sound money management, investment strategies, and economic principles that empower you to make informed financial decisions. From budgeting and saving to understanding global economic trends, our courses provide practical insights to navigate the complex world of personal finance and economics. Whether you're a beginner seeking financial literacy or looking to refine your economic understanding, our courses offer a pathway to financial empowerment. Join us and embark on a journey towards financial independence and a deeper comprehension of economic dynamics. </p>
@@ -71,7 +71,7 @@ export default function () {
           marginBottom: "20px",
         }}
       >
-        Personal Finance and Economics
+        Courses
       </h1>
       <hr style={{ margin: "10px 0" }} />
       <Container style={{ margin: "5px" }} fluid>

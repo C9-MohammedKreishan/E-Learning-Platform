@@ -33,7 +33,7 @@ export default function () {
         <Row>
           <Col xs={12} md={4}>
             <img
-              src="https://res.cloudinary.com/dalwd5c23/image/upload/v1705440548/pexels-lukas-590016_jqvw8m.jpg"  
+              src="https://res.cloudinary.com/dalwd5c23/image/upload/v1705603589/pexels-energepiccom-159888_y50nx7.jpg"  
               alt="Category Image"
               style={{ width: '100%', height: 'auto' }}
             />
