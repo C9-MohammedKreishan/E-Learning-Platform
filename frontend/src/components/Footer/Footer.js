@@ -60,7 +60,7 @@ export default function App() {
         className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
         style={{ paddingTop: "5px", background: "#063970", color: "white" }}
       >
-        © 2024 Copyright:
+        <>© 2024 Copyright: E-Learning.com <span className="ms-2 fs-4" style={{color:"white"}}>E-Learning</span></>
 
         <div>
           <a href="" className="me-4 text-reset">
