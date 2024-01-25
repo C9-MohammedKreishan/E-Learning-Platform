@@ -1,6 +1,6 @@
 <p align="center">
 <a href="https://www.meraki-academy.org" target="_blank" rel="noopener noreferrer">
- <img width="400px" height="100px" src="https://www.meraki-academy.org/assets/img/logov02.svg" alt="Project logo">
+ <img width="400px" height="100px" src="https://img.freepik.com/free-vector/e-learning-global-community_24877-60109.jpg?w=1380&t=st=1705454600~exp=1705455200~hmac=3bec94245710a46ccbafbfe564339bb1698e96ea0865c74827b4e4f23ac7b6fb">
  </a>
 </p>
 
