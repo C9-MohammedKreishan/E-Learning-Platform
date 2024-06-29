@@ -55,7 +55,7 @@ import { useNavigate } from "react-router-dom";
 //             className="mb-4"
 //             onClick={() => {
 //               axios
-//                 .post("https://k-e-learning.onrender.com/users/login", {
+//                 .post("https://e-learning-platform-kmqb.onrender.com/users/login", {
 //                   email: userEmail,
 //                   password: userPassword,
 //                 })
@@ -203,7 +203,7 @@ export default function () {
                   id="Register_btn"
                   onClick={() => {
                     axios
-                      .post("https://k-e-learning.onrender.com/users/login", {
+                      .post("https://e-learning-platform-kmqb.onrender.com/users/login", {
                         email: userEmail,
                         password: userPassword,
                       })

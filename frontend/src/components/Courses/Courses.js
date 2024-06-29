@@ -34,7 +34,7 @@ const AddCourse = () => {
           const test = localStorage.getItem("token");
           axios
             .post(
-              "https://k-e-learning.onrender.com/courses",
+              "https://e-learning-platform-kmqb.onrender.com/courses",
               { courseTitle: title, courseDiscription: text },
               {
                 headers: {

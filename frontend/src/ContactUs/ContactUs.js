@@ -113,7 +113,7 @@ export default function () {
                     type="submit"
                     onClick={() => {
                       axios
-                        .post("https://k-e-learning.onrender.com/users/customerfeedbake", {
+                        .post("https://e-learning-platform-kmqb.onrender.com/users/customerfeedbake", {
                           email: userEmail,
                           yourName: userName,
                           message: userMessage,

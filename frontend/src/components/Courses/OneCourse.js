@@ -21,12 +21,12 @@ export default function () {
 
   useEffect(() => {
     axios
-      .get(`https://k-e-learning.onrender.com/courses/search_2/${courseId}`)
+      .get(`https://e-learning-platform-kmqb.onrender.com/courses/search_2/${courseId}`)
       .then((res) => {
         console.log(res.data.course);
         setCourse(res.data.course);
         return axios.get(
-          `https://k-e-learning.onrender.com/courses/search_category/${res.data.course.courseCategory}/test`
+          `https://e-learning-platform-kmqb.onrender.com/courses/search_category/${res.data.course.courseCategory}/test`
         );
       })
       .then((res) => {
@@ -149,7 +149,7 @@ export default function () {
                         console.log(test);
                         axios
                           .post(
-                            `https://k-e-learning.onrender.com/courses/enrollCourse/${courses._id}`,
+                            `https://e-learning-platform-kmqb.onrender.com/courses/enrollCourse/${courses._id}`,
                             {},
                             {
                               headers: {
@@ -174,7 +174,7 @@ export default function () {
                       onClick={() => {
                         axios
                           .get(
-                            `https://k-e-learning.onrender.com/courses/search_2/${courses._id}`,
+                            `https://e-learning-platform-kmqb.onrender.com/courses/search_2/${courses._id}`,
                             
                             
                           )

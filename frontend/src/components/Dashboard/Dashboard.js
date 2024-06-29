@@ -15,7 +15,7 @@ export default function () {
   const redirect = useNavigate();
   useEffect(() => {
     axios
-      .get(`https://k-e-learning.onrender.com/courses/enrollCourse`, {
+      .get(`https://e-learning-platform-kmqb.onrender.com/courses/enrollCourse`, {
         headers: {
           Authorization: `Bearer ${test}`,
         },
@@ -90,7 +90,7 @@ export default function () {
                             onClick={() => {
                               axios
                                 .get(
-                                  `https://k-e-learning.onrender.com/courses/search_2/${courses.courseId._id}`,
+                                  `https://e-learning-platform-kmqb.onrender.com/courses/search_2/${courses.courseId._id}`,
                                   {
                                     headers: {
                                       Authorization: `Bearer ${test}`,
@@ -119,7 +119,7 @@ export default function () {
                               console.log(test);
                               axios
                                 .delete(
-                                  `https://k-e-learning.onrender.com/courses/${courses._id}`,
+                                  `https://e-learning-platform-kmqb.onrender.com/courses/${courses._id}`,
                                   {
                                     headers: {
                                       Authorization: `Bearer ${test}`,
