@@ -11,7 +11,7 @@ export default function () {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/courses`)
+      .get(`https://k-e-learning.onrender.com/courses`)
       .then((res) => {
         setCourses(res.data.course);
       })

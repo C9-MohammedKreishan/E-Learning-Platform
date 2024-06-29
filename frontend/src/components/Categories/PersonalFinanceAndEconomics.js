@@ -16,7 +16,7 @@ export default function () {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:5000/courses/search_category/659e4b863c87a1e60da2baf0/test`
+        `https://k-e-learning.onrender.com/courses/search_category/659e4b863c87a1e60da2baf0/test`
       )
       .then((res) => {
         setCoursesbyCategory(res.data.courses);
@@ -103,7 +103,7 @@ export default function () {
                         console.log(test);
                         axios
                           .post(
-                            `http://localhost:5000/courses/enrollCourse/${courses._id}`,
+                            `https://k-e-learning.onrender.com/courses/enrollCourse/${courses._id}`,
                             {},
                             {
                               headers: {
@@ -128,7 +128,7 @@ export default function () {
                       onClick={() => {
                         axios
                           .get(
-                            `http://localhost:5000/courses/search_2/${courses._id}`
+                            `https://k-e-learning.onrender.com/courses/search_2/${courses._id}`
                           )
                           .then((res) => {
                             console.log("res", res.data.course);

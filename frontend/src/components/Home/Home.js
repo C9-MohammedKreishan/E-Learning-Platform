@@ -14,7 +14,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/courses`)
+      .get(`https://k-e-learning.onrender.com/courses`)
       .then((res) => {
         setCoursess(res.data.courses);
         console.log(res.data.courses);

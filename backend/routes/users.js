@@ -6,8 +6,8 @@ const usersRouter = express.Router();
 
 /*
  * Testing Routes:
- * POST -> http://localhost:5000/users/register
- * POST -> http://localhost:5000/users/login
+ * POST -> https://k-e-learning.onrender.com/users/register
+ * POST -> https://k-e-learning.onrender.com/users/login
  */
 
 

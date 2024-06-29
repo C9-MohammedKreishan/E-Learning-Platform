@@ -88,7 +88,7 @@ export default function () {
                   id="Register_btn"
                   onClick={() => {
                     axios
-                      .post("http://localhost:5000/users/register", {
+                      .post("https://k-e-learning.onrender.com/users/register", {
                         firstName: userFirstName,
                         lastName: userLastName,
                         email: userEmail,

@@ -15,7 +15,7 @@ export default function () {
   const redirect = useNavigate();
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/courses/enrollCourse`, {
+      .get(`https://k-e-learning.onrender.com/courses/enrollCourse`, {
         headers: {
           Authorization: `Bearer ${test}`,
         },
@@ -90,7 +90,7 @@ export default function () {
                             onClick={() => {
                               axios
                                 .get(
-                                  `http://localhost:5000/courses/search_2/${courses.courseId._id}`,
+                                  `https://k-e-learning.onrender.com/courses/search_2/${courses.courseId._id}`,
                                   {
                                     headers: {
                                       Authorization: `Bearer ${test}`,
@@ -119,7 +119,7 @@ export default function () {
                               console.log(test);
                               axios
                                 .delete(
-                                  `http://localhost:5000/courses/${courses._id}`,
+                                  `https://k-e-learning.onrender.com/courses/${courses._id}`,
                                   {
                                     headers: {
                                       Authorization: `Bearer ${test}`,

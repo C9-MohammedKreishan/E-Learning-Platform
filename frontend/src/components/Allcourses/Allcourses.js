@@ -20,7 +20,7 @@ export default function () {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/courses`)
+      .get(`https://k-e-learning.onrender.com/courses`)
       .then((res) => {
         setCourses(res.data.courses);
         console.log(res.data.courses);
@@ -79,7 +79,7 @@ export default function () {
                         console.log(test);
                         axios
                           .post(
-                            `http://localhost:5000/courses/enrollCourse/${courses._id}`,
+                            `https://k-e-learning.onrender.com/courses/enrollCourse/${courses._id}`,
                             {},
                             {
                               headers: {
@@ -104,7 +104,7 @@ export default function () {
                       onClick={() => {
                         axios
                           .get(
-                            `http://localhost:5000/courses/search_2/${courses._id}`,
+                            `https://k-e-learning.onrender.com/courses/search_2/${courses._id}`,
                             {},
                             {},
                             {
