@@ -36,11 +36,11 @@
       "not dead",
       "not op_mini all"
     ],
-"assets": [
-   "src/favicon.ico",
-   "src/assets",
-   "src/_redirects"
-],
+    "assets": [
+      "src/favicon.ico",
+      "src/assets",
+      "src/_redirects"
+    ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
