@@ -46,7 +46,7 @@ const AddCourse = () => {
             .then((res) => {
               setCourseResult(res.data.message);
               console.log(res.data.message);
-              <Dashboard/>
+              // <Dashboard/>
             })
             .catch((err) => {
               console.log(err);
