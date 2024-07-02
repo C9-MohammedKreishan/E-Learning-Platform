@@ -27,7 +27,7 @@ const NavBar = () => {
               src="https://img.freepik.com/free-vector/e-learning-global-community_24877-60109.jpg?w=1380&t=st=1705454600~exp=1705455200~hmac=3bec94245710a46ccbafbfe564339bb1698e96ea0865c74827b4e4f23ac7b6fb"
               alt="E-Learning Logo"
             />
-            <span className="ms-2 fs-4" style={{color:"white"}}>E-Learning</span>
+            <span className="ms-2 fs-4" style={{color:"white"}}>K-E-Learning</span>
           </Navbar.Brand>
 
           <Nav className="col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
